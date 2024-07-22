@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message for Cici</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .message {
+            font-size: 24px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .heart {
+            font-size: 100px;
+            color: red;
+            opacity: 0;
+            animation: pulse 1s infinite;
+            display: none;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="button" onclick="showMessage()">Pencet</button>
+        <div id="message1" class="message">Do you hear me? cici</div>
+        <div id="message2" class="message">I still hear you, cici</div>
+        <div id="heart" class="heart">❤️</div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const message1 = document.getElementById('message1');
+            const message2 = document.getElementById('message2');
+            const heart = document.getElementById('heart');
+
+            message1.style.opacity = 1;
+            
+            setTimeout(() => {
+                message1.style.opacity = 0;
+
+                setTimeout(() => {
+                    message2.style.opacity = 1;
+                    
+                    setTimeout(() => {
+                        message2.style.opacity = 0;
+                        
+                        setTimeout(() => {
+                            heart.style.display = 'block';
+                            heart.style.opacity = 1;
+                        }, 1000);
+                    }, 2000);
+                }, 1000);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
